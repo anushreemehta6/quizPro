@@ -1,12 +1,12 @@
 *{
     padding: 0;
-    margin: 0;
+    margin: 0px;
 }
 
 .main{
     background-color: #151515;
     width: 100%;
-    height: 100vh;
+    /* height: 100vh; */
     background-image: url('/client/assets/Group.png');
 }
 .navbar{
@@ -45,6 +45,9 @@
 .landing p{
     color: #A6AAB2;
     font-size: 25px;
+    font-family: "Abhaya Libre", serif;
+  font-weight: 400;
+  font-style: normal;
 
 }
 .landing button{
@@ -58,3 +61,56 @@
   font-size: 20px;
 }
 
+/* next-landing page  */
+
+
+.nextL{
+    margin-left: 132px;
+}
+.cards{
+    display: flex;
+   gap: 20px;
+}
+.nextL h2{
+    font-family: "Akaya Kanadaka", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    color: white;
+    margin-bottom: 30px;
+
+}
+.card-1{
+    
+    border-radius: 24px;
+
+    background: linear-gradient(90deg, #F09FFD 0%, #495C93 100%);
+    padding: 4px; /* border thickness */
+    
+    display: inline-block;
+
+}
+.inside{
+    background-color: #151515;
+    width: 397px;
+    height: 280px;
+    border-radius: 24px;
+    display: flex;
+    padding: 15px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: "Akaya Kanadaka", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    color: white;
+    gap: 8px;
+}
+.cards button{
+    width: 151px;
+    height: 50px;
+    border-radius: 24px;
+    background-color: #151515;
+    color: white;
+    font-size: larger;
+   
+}
