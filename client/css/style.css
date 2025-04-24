@@ -1,0 +1,15 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.main{
+    background-color: #151515;
+    width: 100%;
+    height: 100vh;
+    background-image: url('/client/assets/Group.png');
+}
+.navbar{
+    font-size: large;
+}
+
