@@ -1,0 +1,38 @@
+QuizPro/
+├── client/                             # Frontend files
+│   ├── index.html                      # Landing page
+│   ├── select.html                     # Subject + difficulty
+│   ├── quiz.html                       # Quiz interface
+│   ├── score.html                      # Final score screen
+│   ├── css/
+│   │   └── style.css                   # Global styles
+│   ├── js/
+│   │   ├── main.js                     # General site logic (landing page)
+│   │   ├── select.js                   # Logic for subject/difficulty
+│   │   ├── quiz.js                     # Quiz functionality
+│   │   └── score.js                    # Score display logic
+│   └── assets/
+│       ├── images/                     # Logos, icons, illustrations
+│       └── fonts/                      # Custom fonts if any
+
+├── server/                             # Backend
+│   ├── index.js                        # Entry point of Node server
+│   ├── routes/
+│   │   ├── quizRoutes.js               # Routes for questions/submit
+│   ├── controllers/
+│   │   ├── quizController.js           # Quiz logic
+│   ├── models/
+│   │   ├── Question.js                 # MongoDB model for questions
+│   │   └── User.js                     # MongoDB model for user name & score
+│   ├── utils/
+│   │   └── db.js                       # MongoDB connection
+│   └── data/
+│       ├── dsa.js                      # Array of DSA questions
+│       ├── dbms.js                     # Array of DBMS questions
+│       ├── cn.js                       # Array of CN questions
+│       └── ...                         # Other subjects
+
+├── .env                                # Environment variables
+├── .gitignore
+├── package.json
+└── README.md
