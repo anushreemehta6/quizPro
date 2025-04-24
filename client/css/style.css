@@ -71,7 +71,7 @@
     display: flex;
    gap: 20px;
 }
-.nextL h2{
+.nextL h1{
     font-family: "Akaya Kanadaka", system-ui;
     font-weight: 400;
     font-style: normal;
@@ -114,3 +114,99 @@
     font-size: larger;
    
 }
+
+
+/* how does it works */
+
+.work h1 {
+    margin-top: 50px;
+    margin-left: 123px;
+    margin-bottom: 60px;
+    font-family: "Akaya Kanadaka", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    color: white;
+  }
+.work h3{
+    font-family: "Akaya Kanadaka", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  color: white;
+}
+  .timeline {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    position: relative;
+    max-width: 1200px;
+    margin: auto;
+  }
+
+  .timeline::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    right: 5%;
+    height: 4px;
+    background: #d08be6;
+    z-index: 0;
+  }
+
+  .step {
+    width: 18%;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .step .circle {
+    background-color: #f0a7fc;
+    color: #000;
+    font-weight: 600;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50%;
+    margin: 0 auto 20px auto;
+    font-size: 1.1rem;
+  }
+
+  .step .card {
+    border: 1px solid #a855f7;
+    padding: 15px 20px;
+    border-radius: 10px;
+    background-color: #101010;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+  }
+
+  .step .card h3 {
+    /* font-size: 1.1rem; */
+    font-size: 24px;
+    margin-bottom: 5px;
+    font-family: "Abhaya Libre", serif;
+  font-weight: 400;
+  font-style: normal;
+  }
+
+  .step .card p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: #ccc;
+  }
+
+  @media (max-width: 768px) {
+    .timeline {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .timeline::before {
+      display: none;
+    }
+
+    .step {
+      width: 90%;
+      margin-bottom: 40px;
+    }
+  }
