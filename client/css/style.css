@@ -13,3 +13,48 @@
     font-size: large;
 }
 
+
+/* landing page starts */
+.landing{
+    padding: 20px;
+    margin: 50px 50px 50px 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.landing h2{
+   font-size: 48px;
+    color: white;
+    font-family: "Akaya Kanadaka", system-ui;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+.landing h1{
+    font-size: 82px;
+    
+    background: linear-gradient(90deg, #F09FFD 0%, #495C93 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: "Akaya Kanadaka", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.landing p{
+    color: #A6AAB2;
+    font-size: 25px;
+
+}
+.landing button{
+    width: 169px;
+    height: 50px;
+    border-radius: 48px;
+    background: linear-gradient(90deg, #F09FFD 0%, #495C93 100%);
+    color: white;
+    border: none;
+  color: white;
+  font-size: 20px;
+}
+
