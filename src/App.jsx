@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import bg from './assets/Group.png'
 import Navbar from './componets/Navbar'
+import Page from './componets/Page'
 function App() {
   
 
@@ -11,11 +12,15 @@ function App() {
     <>
       <div style={{ backgroundColor: `#151515` }}>
         <div
-          className="w-screen h-screen "
-          style={{ backgroundImage: `url(${bg})` }}
+         style={{
+    backgroundImage: `url(${bg})`,
+    backgroundRepeat: 'repeat',
+  }}
+  className="w-full min-h-screen"
         >
           {/* all work goes here*/}
           <Navbar/>
+          <Page/>
         </div>
       </div>
 
