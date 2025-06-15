@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz Page</title>
+  <link rel="stylesheet" href="quiz.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f7f9fc;
+      padding: 2rem;
+    }
+
+    .quiz-container {
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+      color: #333;
+    }
+
+    .question-block {
+      margin-bottom: 2rem;
+    }
+
+    .question-block h4 {
+      margin-bottom: 0.5rem;
+      color: #222;
+    }
+
+    .question-block ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .question-block li {
+      margin-bottom: 0.4rem;
+    }
+
+    .question-block input[type="radio"] {
+      margin-right: 0.5rem;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #3f51b5;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      display: block;
+      margin: 20px auto 0;
+    }
+
+    button:hover {
+      background-color: #303f9f;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="quiz-container" id="quiz-container">
+    <h2>Loading quiz...</h2>
+  </div>
+
+  <script>
+    window.onload = () => {
+      const quizInfo = JSON.parse(localStorage.getItem("quizData"));
+      if (!quizInfo || !quizInfo.questions) {
+        document.getElementById('quiz-container').innerHTML = "<h2>Quiz data not found!</h2>";
+        return;
+      }
+
+      const { questions, subject, difficulty } = quizInfo;
+      const container = document.getElementById("quiz-container");
+
+      let html = `<h2>${subject.toUpperCase()} - ${difficulty.toUpperCase()} Quiz</h2>`;
+
+      questions.forEach((q, i) => {
+        html += `
+          <div class="question-block">
+            <h4>Q${i + 1}. ${q.question}</h4>
+            <ul>
+              ${q.options.map(opt => `
+                <li>
+                  <label>
+                    <input type="radio" name="q${i}" value="${opt}"> ${opt}
+                  </label>
+                </li>`).join("")}
+            </ul>
+          </div>
+        `;
+      });
+
+      html += `<button onclick="submitQuiz()">Submit Quiz</button>`;
+      container.innerHTML = html;
+    }
+
+    function submitQuiz() {
+      const quizInfo = JSON.parse(localStorage.getItem("quizData"));
+      const { questions, subject, difficulty } = quizInfo;
+
+      let score = 0;
+      questions.forEach((q, i) => {
+        const selected = document.querySelector(`input[name="q${i}"]:checked`);
+        if (selected && selected.value === q.answer) {
+          score++;
+        }
+      });
+
+      const total = questions.length;
+      alert(`You scored ${score} out of ${total}`);
+
+      const name = prompt("Enter your name to save your score:");
+
+      fetch('/api/quiz/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ name, subject, difficulty, score })
+      })
+      .then(res => res.json())
+      .then(data => {
+        alert(data.message || "Score submitted successfully!");
+        window.location.href = "/"; // Go back to home or dashboard
+      })
+      .catch(err => {
+        alert("Error submitting score: " + err.message);
+      });
+    }
+  </script>
+</body>
+</html>
