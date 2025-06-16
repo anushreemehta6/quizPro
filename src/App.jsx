@@ -5,6 +5,8 @@ import './App.css'
 import bg from './assets/Group.png'
 import Navbar from './componets/Navbar'
 import Page from './componets/Page'
+import Subject from './componets/Subject'
+import Contact from './componets/Contact'
 function App() {
   
 
@@ -21,6 +23,8 @@ function App() {
           {/* all work goes here*/}
           <Navbar/>
           <Page/>
+          <Subject/>
+          <Contact/>
         </div>
       </div>
 
